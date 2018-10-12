@@ -1,0 +1,121 @@
+body
+{
+	padding: 0;
+	margin: 0;
+	background-color: #004556;
+}
+
+#header
+{
+	font-family: Tahoma;
+	font-weight: bold;
+	font-size: 38pt;
+	color: #004556;
+	background-color: #fcc700;
+	padding-top: 130px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+	background-image: url(gradient1.png);
+	background-repeat: repeat-x;
+}
+
+#allRows
+{
+	width: 100%;
+	background-color: #a8d4e0;
+	color: #006a84;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 34pt;
+	float: left;
+	white-space: nowrap;
+}
+
+.header
+{
+	color: #FFF;
+	background-color: #004556;
+	font-family: Arial;
+	background-image: url(gradient2.png);
+	background-repeat: repeat-x;
+}
+
+.handle
+{
+	width: 35%;
+	color: #004556;
+}
+
+.header .handle
+{
+	width: 35%;
+	color: #FFF;
+}
+
+.total { width: 20%; }
+
+.ex
+{
+	width: 20%;
+	text-align: center;
+}
+
+.full
+{
+	width: 10%;
+	text-align: center;
+}
+
+.show10 .row { font-size: 28pt; }
+.show8 .row { font-size: 30pt; }
+
+.row
+{
+	border-bottom: 2px #004556 solid;
+	width: 98%;
+	padding-left: 2%;
+	float: left;
+	min-height: 28px;
+}
+
+.alt { background-color: #d2e4e7; }
+
+.row span
+{
+	float: left;
+	padding: 4px 0 5px 20px;
+}
+
+.p1 { right: 65%; }
+.p2 { right: 45%; }
+.p3 { right: 25%; }
+.p1c , .c1c { right: 65%; }
+.p2c , .c2c { right: 50%; }
+.p3c , .c3c { right: 35%; }
+.chs { right: 15%; }
+
+.c1c, .c2c, .c3c
+{
+	top: 0;
+	font-size: 12pt;
+	color: #ff0000;
+}
+
+.open { color: #ffff00; }
+.chfail { color: #ff0000; }
+
+.subm
+{
+	color: #ffffff;
+	background-color: #00cc00;
+}
+
+.status120 { font-style: italic; }
+.status121 { font-style: italic; }
+.status130 { color: #00ff00; }
+
+.status140
+{
+	text-decoration: line-through;
+	color: #ff0000;
+}

@@ -1,0 +1,43 @@
+We are tasked with finding an infinite number of sets such that the 
+intersection of any two sets is non-empty, but the intersection of any three
+sets is empty.  Finding a truly infinite number of such sets would require
+that each set be infinitely large.  Having noted that pedantic detail, we can,
+indeed, put together an arbitrarily large collection of sets meeting the given
+criteria.
+
+We will demonstrate a base case of three sets, and will show inductively, given
+a collection of N sets meeting the criteria, how to construct a collection of
+N+1 sets.
+
+First, we make the observation that any element must appear in no more than two
+sets.  And, each set in a collection of N sets should contain N-1 elements.
+(That yields exactly one element to have in common with each of the other N-1
+sets.)  So, with N sets, each containing N-1 elements, each element appearing in
+exactly two sets, there are thus N * (N-1) / 2 distinct elements used to
+populate the sets.
+
+For N = 3, and using whole numbers as elements, we can trivially create the sets:
+{0, 1}, {0, 2}, {1, 2}
+
+Now, given N sets, we can easily add one additional element to each, and create
+one new additional set, such that we end up with N+1 sets.  Let x be the largest
+element appearing in the N sets.  Then, to our first set, we add the element x+1,
+to the second we add x+2, and so on.  We then create a new set consisting of
+{x+1, x+2, ... , x+N}  This new set maintains the property of having at least (in
+fact, exactly) one element in common with each other set.  And, since the common
+element is unique for each of the first N sets, there still remain no three sets
+with a non-empty intersection.
+
+We can continue this process repeatedly to construct an arbitrarily large
+collection of sets meeting the initial given criteria.
+
+As a final example, consider these six sets, formed using the described method.
+{ 0, 1, 3, 6,10,15}
+{ 0, 2, 4, 7,11,16}
+{ 1, 2, 5, 8,12,17}
+{ 3, 4, 5, 9,13,18}
+{ 6, 7, 8, 9,14,19}
+{10,11,12,13,14,20}
+{15,16,17,18,19,20}
+
+
