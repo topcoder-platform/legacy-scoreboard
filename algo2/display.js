@@ -4,12 +4,12 @@ var totalRows = 6;
 
 var roundMinutes = 85;
 
-var algoRound = 17017;
-var codingStart =    new Date(2017,  9, 23,   13, 30, 0, 0);
-var codingEnd =      new Date(2017,  9, 23,   14, 55, 0, 0);
-var challengeStart = new Date(2017,  9, 23,   15,  0, 0, 0);
-var challengeEnd =   new Date(2017,  9, 23,   15, 10, 0, 0);
-var components = [57869, 58023, 58028];
+var algoRound = 17016;
+var codingStart =    new Date(2017,  9, 22,   18,  0, 0, 0);
+var codingEnd =      new Date(2017,  9, 22,   19, 25, 0, 0);
+var challengeStart = new Date(2017,  9, 22,   19, 30, 0, 0);
+var challengeEnd =   new Date(2017,  9, 22,   19, 40, 0, 0);
+var components = [57871, 57609, 57606];
 var problemPoints = [250, 500, 1000];
 
 var dashTimes = [
@@ -27,7 +27,7 @@ var marathonStart = new Date(2017,  9, 22,  9, 0, 0, 0);
 var marathonEnd =   new Date(2017,  9, 22, 19, 0, 0, 0);
 
 //var webserviceUrl = "http://192.168.12.145/TCO11Scoreboard.php";
-var webserviceUrl = "http://gibbon/service.asp";
+var webserviceUrl = "http://localhost/service.asp";
 
 /*
 // Algo Semi 1
@@ -100,13 +100,13 @@ var dashers = [
   'hohosky',
   'flexme',
   'Zulander',
-  'Yeung', 
+  'Yeung',
   'notpad',
-  'supercharger', 
+  'supercharger',
   'Fanazhe',
   'FireIce',
   'izhari',
-  'LieutenantRoger', 
+  'LieutenantRoger',
   'PE',
   'wz12',
 ];
@@ -358,9 +358,9 @@ function updateCountdown() {
   if (processingLoad) return;
   var timeDelta = (new Date().getTime() - lastLoadTime) / 1000;
   for (var i = 0; i < Math.min(standings.length, totalRows); i++) {
-	if ((standings[i][4] == 120 || standings[i][4] == 121) && standings[i][14]) setText("p1c" + i, calculateScore(problemPoints[0], timeDelta + standings[i][14]));	
-	if ((standings[i][5] == 120 || standings[i][5] == 121) && standings[i][15]) setText("p2c" + i, calculateScore(problemPoints[1], timeDelta + standings[i][15]));	
-	if ((standings[i][6] == 120 || standings[i][6] == 121) && standings[i][16]) setText("p3c" + i, calculateScore(problemPoints[2], timeDelta + standings[i][16]));	
+	if ((standings[i][4] == 120 || standings[i][4] == 121) && standings[i][14]) setText("p1c" + i, calculateScore(problemPoints[0], timeDelta + standings[i][14]));
+	if ((standings[i][5] == 120 || standings[i][5] == 121) && standings[i][15]) setText("p2c" + i, calculateScore(problemPoints[1], timeDelta + standings[i][15]));
+	if ((standings[i][6] == 120 || standings[i][6] == 121) && standings[i][16]) setText("p3c" + i, calculateScore(problemPoints[2], timeDelta + standings[i][16]));
   }
   var now = new Date();
   //now.setMinutes(now.getMinutes() - 1);
@@ -421,7 +421,7 @@ function updateChallengeTime() {
 	setText("countdown2", convertToTime(challengeEnd.getTime() - now.getTime()));
   } else {
     setText("countdown1", "Round Completed");
-	setText("countdown2", "");
+	setText("countdown2", "12:48");
   }
 }
 
@@ -473,21 +473,21 @@ function onLoadR(text, xml) {
 	if (standings[i][1] != undefined && standings[i][4] != 120 && standings[i][4] != 121) {
 	  setText("p1c" + i, Number(standings[i][1]).toFixed(2));
 	} else if ((standings[i][4] == 120 || standings[i][4] == 121) && standings[i][14]) {
-	  //setText("p1c" + i, calculateScore(problemPoints[0], timeDelta + standings[i][14]));	
+	  //setText("p1c" + i, calculateScore(problemPoints[0], timeDelta + standings[i][14]));
 	} else {
 	  setText("p1c" + i, "");
 	}
 	if (standings[i][2] != undefined && standings[i][5] != 120 && standings[i][5] != 121) {
 	  setText("p2c" + i, Number(standings[i][2]).toFixed(2));
 	} else if ((standings[i][5] == 120 || standings[i][5] == 121) && standings[i][15]) {
-	  //setText("p2c" + i, calculateScore(problemPoints[1], timeDelta + standings[i][15]));	
+	  //setText("p2c" + i, calculateScore(problemPoints[1], timeDelta + standings[i][15]));
 	} else {
 	  setText("p2c" + i, "");
 	}
 	if (standings[i][3] != undefined && standings[i][6] != 120 && standings[i][6] != 121) {
 	  setText("p3c" + i, Number(standings[i][3]).toFixed(2));
 	} else if ((standings[i][6] == 120 || standings[i][6] == 121) && standings[i][16]) {
-	  //setText("p3c" + i, calculateScore(problemPoints[2], timeDelta + standings[i][16]));	
+	  //setText("p3c" + i, calculateScore(problemPoints[2], timeDelta + standings[i][16]));
 	} else {
 	  setText("p3c" + i, "");
 	}
@@ -555,23 +555,23 @@ function onLoadC(text, xml) {
 	standings[i][8] += standings[i][10] ? Number(standings[i][10]) : 0;
   }
   sortStandings();
-  
+
   for (var i = 0; i < Math.min(standings.length, totalRows); i++) {
     setClass("p1cx" + i, "p1cx");
     setClass("p2cx" + i, "p2cx");
     setClass("p3cx" + i, "p3cx");
     setText("h" + i, standings[i][0]);
 	if (standings[i][4] == 140) {
-	  setText("p1c" + i, Number(standings[i][1]).toFixed(2));	
+	  setText("p1c" + i, Number(standings[i][1]).toFixed(2));
 	  setClass("p1c" + i, "p1c status140");
 	} else if (standings[i][1] != undefined) {
-	  setText("p1c" + i, Number(standings[i][1]).toFixed(2));	
+	  setText("p1c" + i, Number(standings[i][1]).toFixed(2));
 	  setClass("p1c" + i, "p1c");
 	} else {
 	  setText("p1c" + i, "");
 	}
 	if (standings[i][5] == 140) {
-	  setText("p2c" + i, Number(standings[i][2]).toFixed(2));	
+	  setText("p2c" + i, Number(standings[i][2]).toFixed(2));
 	  setClass("p2c" + i, "p2c status140");
 	} else if (standings[i][2] != undefined) {
 	  setText("p2c" + i, Number(standings[i][2]).toFixed(2));
@@ -580,7 +580,7 @@ function onLoadC(text, xml) {
 	  setText("p2c" + i, "");
 	}
 	if (standings[i][6] == 140) {
-	  setText("p3c" + i, Number(standings[i][3]).toFixed(2));	
+	  setText("p3c" + i, Number(standings[i][3]).toFixed(2));
 	  setClass("p3c" + i, "p3c status140");
 	} else if (standings[i][3] != undefined) {
 	  setText("p3c" + i, Number(standings[i][3]).toFixed(2));
@@ -646,8 +646,8 @@ function parseQueryString() {
 }
 
 function createRow(number) {
-  var ret = createElement("div", { 
-    class: ((number % 2) == 0 ? "row alt" : "row"), 
+  var ret = createElement("div", {
+    class: ((number % 2) == 0 ? "row alt" : "row"),
 	id: "row" + number
   });
   ret.appendChild(createElement("span", { class: "handle", id: "h" + number }));
@@ -656,8 +656,8 @@ function createRow(number) {
 }
 
 function createRowD(number) {
-  var ret = createElement("div", { 
-    class: ((number % 2) == 0 ? "row alt" : "row"), 
+  var ret = createElement("div", {
+    class: ((number % 2) == 0 ? "row alt" : "row"),
 	id: "row" + number
   });
   ret.appendChild(createElement("span", { class: "handle", id: "h" + number }, number >= 0 ? dashers[number] : ""));
@@ -769,6 +769,3 @@ function onLoad(type) {
     //intervalHandle = setInterval(loadR, reloadTime);
   }
 }
-
-
-
